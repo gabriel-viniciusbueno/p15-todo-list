@@ -3,8 +3,8 @@ const doubleCheck = document.getElementById('double-check')
 const doubleCheckBtn = document.getElementById('double-check-btn')
 const deleteLeft = document.getElementById('delete-left')
 
-const darksideBtn = document.getElementById('darkside')
-const lightsideBtn = document.getElementById('lightside')
+const changeThemeBtn = document.getElementById('changeThemeBtn')
+// const lightsideBtn = document.getElementById('lightside')
 
 const todoContainer = document.getElementById('todo-container')
 
@@ -23,8 +23,9 @@ let oldInputValue
 
 
 //Temas
-const h1Title = document.getElementById('todo-title')
-const paragrafos = document.querySelectorAll('.paragrafo')
+
+const buttons = document.querySelectorAll('button')
+const icons = document.querySelectorAll('i')
 
 //Funções
 
@@ -163,8 +164,15 @@ document.addEventListener('click', (e) => {
         todoTitle = parentEl.querySelector('h3').innerText
     }
 
-    if(targetEl.classList.contains('finish-todo')){
-        parentEl.classList.toggle('done')
+    if(targetEl.classList.contains('finish-todo') && changeThemeBtn.classList.contains('darkside')){
+        
+        parentEl.classList.toggle('done-dark')
+
+        updateTodoStatusLocalStorage(todoTitle)
+    }
+
+    if(targetEl.classList.contains('finish-todo') && changeThemeBtn.classList.contains('lightside')){
+        parentEl.classList.toggle('done-light')
 
         updateTodoStatusLocalStorage(todoTitle)
     }
@@ -294,5 +302,28 @@ loadTodos()
 
 
 // DARK LIGHT
+
+changeThemeBtn.addEventListener('click', function(ev){
+    ev.preventDefault()
+
+    changeThemeBtn.classList.toggle('lightside')
+    if(changeThemeBtn.classList.contains('lightside')){
+        changeThemeBtn.innerText = 'Lightside'
+
+        document.body.style.backgroundImage = "url('../img/yodaDark.jpg')"
+        todoContainer.classList.remove('container-dark')
+        todoContainer.classList.add('container-light')
+
+    } else if(changeThemeBtn.classList.contains('darkside')){
+        changeThemeBtn.innerText = 'Darkside'
+        
+        document.body.style.backgroundImage = "url('../img/vader.jpg')"
+
+        todoContainer.classList.remove('container-light')
+        todoContainer.classList.add('container-dark')
+    }
+
+})
+
 
 

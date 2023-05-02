@@ -16,8 +16,8 @@ body{
 
 button{
     background-color: #FDFDFD;
-    color: #df4343;
-    border: 2px solid #df4343;
+    color: #333;
+    border: 2px solid #fdfdfd;
     padding: .3rem .6rem;
     font-size: 1rem;
     cursor: pointer;
@@ -28,17 +28,17 @@ button{
 }
 
 button:hover{
-    background-color: #df4343;
-    border: 2px solid #df4343;
-    color: #333;
+    background-color: #333;
+    border: 2px solid #fdfdfd;
+    color: #fdfdfd;
 }
 
 button:hover > i{
-    color: #333;
+    color: #fdfdfd;
 }
 
 button i{
-    color: #df4343;
+    color: #333;
     font-weight: bold;
     pointer-events: none;
 }
@@ -69,30 +69,46 @@ input, select{
     flex-direction: column;
 }
 
-.color-theme .darkside1{
+.color-theme .darkside{
     background-color: #333;
     color: #df4343;
     border: 2px solid #df4343;
 }
-.color-theme .darkside1:hover{
+.color-theme .darkside:hover{
     background-color: #df4343;
     color: #333;
     border: 2px solid #df4343;
 }
-.color-theme .darkside2{
-    background-color: #df4343;
-    color: #333;
-    border: 2px solid #333;
-}
-.color-theme .lightside1{
+
+.color-theme .lightside{
     border: 2px solid #4df84d;
     color: #4df84d;
     background-color: #333;
 }
-.color-theme .lightside1:hover{
+.color-theme .lightside:hover{
     border: 2px solid #4df84d;
     color: #333;
     background-color: #4df84d;
+}
+
+.lightside-btn-icon{
+    background-color: #FDFDFD;
+    color: #4df84d;
+    border: 2px solid #4df84d;
+    padding: .3rem .6rem;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+
+.color-theme .lightside-btn-icon:hover{
+    background-color: #4df84d;
+    border: 2px solid #4df84d;
+    color: #333;
 }
 
 
@@ -107,6 +123,14 @@ input, select{
     padding: 1.5rem;
     border-radius: 15px;
     /* margin: auto; */
+}
+
+.container-dark{
+    box-shadow: 0 0 15px #df434389
+}
+
+.container-light {
+    box-shadow: 0 0 15px #4df84d83
 }
 
 .todo-container header{
@@ -181,11 +205,16 @@ input, select{
     width: 35%;
     display: flex;
     flex-direction: column;
+    color: #333;
 }
 
 #filter select{
     flex: 1;
     color: #666;
+}
+
+#filter select option{
+    color: #333;
 }
 
 /* todo list */
@@ -208,12 +237,22 @@ input, select{
     margin-left: 0.4rem;
 }
 
-.done{
-    background-color: #395169;
+.done-dark{
+    background-color: #df4343;
 }
 
-.done h3{
+.done-dark h3{
     color: #FFF;
+    text-decoration: line-through;
+    font-style: italic;
+}
+
+.done-light{
+    background-color: #4df84d;
+}
+
+.done-light h3{
+    color: #333;
     text-decoration: line-through;
     font-style: italic;
 }
